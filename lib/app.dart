@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:provider/provider.dart';
+import 'core/constants/app_colors.dart';
+import 'core/routes/app_routes.dart';
+import 'features/auth/providers/auth_provider.dart';
+import 'features/auth/screens/login_screen.dart';
+import 'features/auth/screens/register_screen.dart';
+import 'features/classes/screens/join_class_screen.dart';
+import 'features/dashboard/providers/dashboard_provider.dart';
+import 'features/dashboard/screens/dashboard_screen.dart';
+import 'features/splash/screens/splash_screen.dart';
+
+class KlassInfoApp extends StatelessWidget {
+  const KlassInfoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardProvider()),
+      ],
+      child: MaterialApp(
+        title: 'KlassInfo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+          useMaterial3: true,
+        ),
+        // No home: here. AuthGate owns the root.
+        initialRoute: AppRoutes.splash,
+        routes: {
+          AppRoutes.splash: (_) => const AuthGate(),
+          AppRoutes.login: (_) => const LoginScreen(),
+          AppRoutes.register: (_) => const RegisterScreen(),
+          AppRoutes.dashboard: (_) => const DashboardScreen(),
+          AppRoutes.joinClass: (_) => const JoinClassScreen(),
+        },
+      ),
+    );
+  }
+}
+
+// Separate widget so the StreamBuilder lives inside the route system,
+// not above it. This means pushNamedAndRemoveUntil works correctly.
+class AuthGate extends StatelessWidget {
+  const AuthGate({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<firebase_auth.User?>(
+      stream: firebase_auth.FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SplashScreen();
+        }
+        if (snapshot.hasData) {
+          return const DashboardScreen();
+        }
+        return const LoginScreen();
+      },
+    );
+  }
+}

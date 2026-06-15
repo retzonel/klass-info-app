@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "258263681738",
+    "project_id": "klassinfo-app",
+    "storage_bucket": "klassinfo-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258263681738:android:b97363391b576682134233",
+        "android_client_info": {
+          "package_name": "com.example.klassinfo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD74SHybDzVtCxvpzXUn5OWbnpNmZ0BlGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
