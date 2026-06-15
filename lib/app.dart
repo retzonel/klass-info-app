@@ -10,6 +10,9 @@ import 'features/classes/screens/join_class_screen.dart';
 import 'features/dashboard/providers/dashboard_provider.dart';
 import 'features/dashboard/screens/dashboard_screen.dart';
 import 'features/splash/screens/splash_screen.dart';
+import 'features/classes/screens/class_detail_screen.dart';
+import 'features/classes/screens/course_detail_screen.dart';
+import 'features/announcements/screens/post_announcement_screen.dart';
 
 class KlassInfoApp extends StatelessWidget {
   const KlassInfoApp({super.key});
@@ -36,6 +39,9 @@ class KlassInfoApp extends StatelessWidget {
           AppRoutes.register: (_) => const RegisterScreen(),
           AppRoutes.dashboard: (_) => const DashboardScreen(),
           AppRoutes.joinClass: (_) => const JoinClassScreen(),
+          AppRoutes.classDetail: (_) => const ClassDetailScreen(),
+          AppRoutes.courseDetail: (_) => const CourseDetailScreen(),
+          AppRoutes.postAnnouncement: (_) => const PostAnnouncementScreen(),
         },
       ),
     );
