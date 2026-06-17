@@ -51,7 +51,6 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
         _isLoading = false;
       });
     } else {
-       
       Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
     }
   }
@@ -61,7 +60,7 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(  // ← Wrap with SingleChildScrollView
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
           child: Form(
             key: _formKey,
@@ -137,7 +136,6 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
 
                 TextFormField(
                   controller: _codeController,
-                   
                   textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(
                     fontSize: 22,
@@ -225,6 +223,9 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
                   onPressed: _submit,
                   isLoading: _isLoading,
                 ),
+                
+                // Add some bottom padding for better keyboard experience
+                const SizedBox(height: 20),
               ],
             ),
           ),

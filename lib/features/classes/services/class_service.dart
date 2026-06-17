@@ -1,5 +1,6 @@
 import '../../../core/services/firestore_service.dart';
 import '../models/class_model.dart';
+import '../../../core/services/notification_service.dart';
 
 class ClassService {
   final FirestoreService _firestoreService = FirestoreService();
@@ -14,15 +15,19 @@ class ClassService {
 
     if (code.isEmpty) return 'Please enter a class code.';
 
-    // Check if this class actually exists in Firestore
     final exists = await _firestoreService.classExists(code);
     if (!exists) {
       return 'Class code "$code" not found. Check the code and try again.';
     }
 
-    // Add to user's joinedClassIds
     await _firestoreService.joinClass(uid, code);
-    return null; // null = success
+
+    // Non-blocking — if FCM fails, the join still succeeds.
+    NotificationService().subscribeToClass(code).catchError((e) {
+      print('FCM subscription failed: $e');
+    });
+
+    return null;
   }
 
   // Fetches full ClassModel objects for a list of class codes.

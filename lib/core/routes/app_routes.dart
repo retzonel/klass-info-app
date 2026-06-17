@@ -6,7 +6,8 @@ class AppRoutes {
   static const String register = '/register';
   static const String dashboard = '/dashboard';
   static const String joinClass = '/join-class';
-  static const String classDetail = '/class-detail';          
-  static const String courseDetail = '/course-detail';        
-  static const String postAnnouncement = '/post-announcement';  
+  static const String classDetail = '/class-detail';
+  static const String courseDetail = '/course-detail';
+  static const String postAnnouncement = '/post-announcement';
+  static const String fileViewer = '/file-viewer';
 }

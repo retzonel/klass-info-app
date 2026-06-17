@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:klassinfo_app/features/files/screens/file_viewer_screen.dart';
 import 'package:provider/provider.dart';
 import 'core/constants/app_colors.dart';
 import 'core/routes/app_routes.dart';
@@ -42,6 +43,7 @@ class KlassInfoApp extends StatelessWidget {
           AppRoutes.classDetail: (_) => const ClassDetailScreen(),
           AppRoutes.courseDetail: (_) => const CourseDetailScreen(),
           AppRoutes.postAnnouncement: (_) => const PostAnnouncementScreen(),
+          AppRoutes.fileViewer: (_) => const FileViewerScreen(),
         },
       ),
     );
