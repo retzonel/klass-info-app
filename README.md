@@ -14,7 +14,6 @@ KlassInfo solves this problem by providing a centralized platform for course inf
 * Course-based Organization
 * Announcements
 * File Sharing
-* Push Notifications
 * Role-based Permissions
 
 ## Screenshots
@@ -88,6 +87,7 @@ Building KlassInfo taught me:
 
 ## Future Improvements
 
+* Push Notifications
 * Lecturer Accounts
 * Verification System
 * Timetable Integration
