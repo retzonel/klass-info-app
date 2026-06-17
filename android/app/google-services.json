@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "258263681738",
+    "firebase_url": "https://klassinfo-app-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "klassinfo-app",
     "storage_bucket": "klassinfo-app.firebasestorage.app"
   },

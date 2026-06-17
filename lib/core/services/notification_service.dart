@@ -34,6 +34,9 @@ class NotificationService {
 
     debugPrint('Notification permission: ${settings.authorizationStatus}');
 
+    final token = await _messaging.getToken();
+    debugPrint('FCM Device Token: $token');
+
     // Listen for messages while the app is in the foreground
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       debugPrint('Foreground message: ${message.notification?.title}');
@@ -124,13 +127,14 @@ class NotificationService {
     }
   }
 
-  // Generates a short-lived OAuth token using service account credentials
   Future<String> _getAccessToken() async {
     final serviceAccountCredentials = auth.ServiceAccountCredentials.fromJson({
       'type': 'service_account',
       'project_id': AppSecrets.fcmProjectId,
       'client_email': AppSecrets.fcmClientEmail,
       'private_key': AppSecrets.fcmPrivateKey,
+      // googleapis_auth requires this field — value can be empty string
+      'client_id': AppSecrets.fcmClientId,
       'token_uri': 'https://oauth2.googleapis.com/token',
     });
 
