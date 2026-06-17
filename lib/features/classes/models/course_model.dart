@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CourseModel {
   final String id;
-  final String classCode;   // We carry this down so child screens know their path
+  final String classCode;    
   final String title;
   final String description;
   final DateTime createdAt;

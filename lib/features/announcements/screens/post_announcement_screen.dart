@@ -39,7 +39,7 @@ class _PostAnnouncementScreenState extends State<PostAnnouncementScreen> {
     final uid = context.read<AuthProvider>().currentUser!.uid;
 
     final announcement = AnnouncementModel(
-      id: '',       // Firestore will generate this on .add()
+      id: '',        
       title: _titleController.text.trim(),
       body: _bodyController.text.trim(),
       postedBy: uid,
@@ -54,7 +54,7 @@ class _PostAnnouncementScreenState extends State<PostAnnouncementScreen> {
       );
 
       if (mounted) {
-        // Show a confirmation then go back
+         
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Announcement posted.'),

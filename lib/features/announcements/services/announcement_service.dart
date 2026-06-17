@@ -5,7 +5,7 @@ import '../models/announcement_model.dart';
 class AnnouncementService {
   final FirestoreService _firestoreService = FirestoreService();
 
-  // Live stream of announcements for a course, newest first
+   
   Stream<List<AnnouncementModel>> announcementsStream(
     String classCode,
     String courseId,
@@ -17,7 +17,7 @@ class AnnouncementService {
             .toList());
   }
 
-  // Posts a new announcement to Firestore
+   
   Future<void> postAnnouncement({
     required String classCode,
     required String courseId,

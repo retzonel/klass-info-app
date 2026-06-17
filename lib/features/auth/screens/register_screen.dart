@@ -13,7 +13,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  // GlobalKey lets us validate the form programmatically
+   
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -22,8 +22,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool _obscurePassword = true;
 
-  // Always dispose controllers when the screen is removed.
-  // Failing to do this leaks memory.
+   
+   
   @override
   void dispose() {
     _emailController.dispose();
@@ -34,7 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Future<void> _submit() async {
-    // Stop here if any field fails validation
+     
     if (!_formKey.currentState!.validate()) return;
 
     final auth = context.read<AuthProvider>();
@@ -46,8 +46,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
 
     if (success && mounted) {
-      // Auth state stream in app.dart will automatically redirect.
-      // But we also navigate manually as a fallback.
+       
+       
       Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
     }
   }
@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 const SizedBox(height: 32),
 
-                // Header
+                 
                 const Text(
                   'Create Account',
                   style: TextStyle(
@@ -99,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // Email field
+                 
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -114,12 +114,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (!value.contains('@')) {
                       return 'Please enter a valid email';
                     }
-                    return null; // null means valid
+                    return null;  
                   },
                 ),
                 const SizedBox(height: 16),
 
-                // Password field
+                 
                 TextFormField(
                   controller: _passwordController,
                   obscureText: _obscurePassword,
@@ -151,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // Confirm password field
+                 
                 TextFormField(
                   controller: _confirmPasswordController,
                   obscureText: _obscurePassword,
@@ -168,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 24),
 
-                // Error message from Firebase
+                 
                 if (auth.errorMessage != null)
                   Container(
                     padding: const EdgeInsets.all(12),
@@ -207,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 24),
 
-                // Navigate to login
+                 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

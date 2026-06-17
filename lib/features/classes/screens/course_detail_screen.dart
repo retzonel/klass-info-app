@@ -42,14 +42,14 @@ class CourseDetailScreen extends StatelessWidget {
             ],
           ),
         ),
-        // Show the FAB only for admins, only on the Announcements tab
+         
         floatingActionButton: isAdmin
             ? _AdminFab(course: course)
             : null,
         body: TabBarView(
           children: [
             _AnnouncementsTab(course: course),
-            _FilesTab(course: course),            // wired up in Milestone 6
+            _FilesTab(course: course),             
           ],
         ),
       ),
@@ -57,7 +57,7 @@ class CourseDetailScreen extends StatelessWidget {
   }
 }
 
-// ─── ANNOUNCEMENTS TAB ────────────────────────────────────────────────────────
+ 
 
 class _AnnouncementsTab extends StatelessWidget {
   final CourseModel course;
@@ -127,7 +127,7 @@ class _AnnouncementsTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header row: icon + title + time
+           
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -171,7 +171,7 @@ class _AnnouncementsTab extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          // Body text
+           
           Text(
             announcement.body,
             style: const TextStyle(
@@ -198,7 +198,7 @@ class _AnnouncementsTab extends StatelessWidget {
   }
 }
 
-// ─── FILES TAB (placeholder) ──────────────────────────────────────────────────
+ 
 
 class _FilesTab extends StatelessWidget {
   final CourseModel course;
@@ -222,7 +222,7 @@ class _FilesTab extends StatelessWidget {
   }
 }
 
-// ─── ADMIN FAB ────────────────────────────────────────────────────────────────
+ 
 
 class _AdminFab extends StatefulWidget {
   final CourseModel course;
@@ -235,7 +235,7 @@ class _AdminFab extends StatefulWidget {
 class _AdminFabState extends State<_AdminFab> {
   @override
   Widget build(BuildContext context) {
-    // Only show FAB when on the Announcements tab (index 0)
+     
     final tabController = DefaultTabController.of(context);
 
     return AnimatedBuilder(

@@ -31,7 +31,7 @@ class KlassInfoApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,
         ),
-        // No home: here. AuthGate owns the root.
+
         initialRoute: AppRoutes.splash,
         routes: {
           AppRoutes.splash: (_) => const AuthGate(),
@@ -48,8 +48,6 @@ class KlassInfoApp extends StatelessWidget {
   }
 }
 
-// Separate widget so the StreamBuilder lives inside the route system,
-// not above it. This means pushNamedAndRemoveUntil works correctly.
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
 

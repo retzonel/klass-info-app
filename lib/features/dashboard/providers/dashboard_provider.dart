@@ -19,13 +19,13 @@ class DashboardProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
-  // We hold a reference to the stream subscription so we can
-  // cancel it when this provider is disposed. Always do this —
-  // not cancelling causes memory leaks.
+   
+   
+   
   StreamSubscription<UserModel?>? _userSubscription;
 
   void init(String uid) {
-    // Cancel any existing subscription before starting a new one
+     
     _userSubscription?.cancel();
     _userSubscription = null;
 
@@ -65,7 +65,7 @@ class DashboardProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Clean up the stream when the provider is destroyed.
+   
   @override
   void dispose() {
     _userSubscription?.cancel();

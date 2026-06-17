@@ -11,7 +11,7 @@ class ClassDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Retrieve the ClassModel passed from the dashboard card tap
+     
     final classModel =
         ModalRoute.of(context)!.settings.arguments as ClassModel;
     final firestoreService = FirestoreService();

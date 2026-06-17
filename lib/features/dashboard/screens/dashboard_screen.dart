@@ -18,18 +18,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void initState() {
     super.initState();
 
-    // Start listening to the user's Firestore document
-    // as soon as this screen is created.
+     
+     
     final uid = context.read<AuthProvider>().currentUser!.uid;
-    // We use addPostFrameCallback because providers shouldn't
-    // be called during build. This waits until the first frame is drawn.
+     
+     
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<DashboardProvider>().init(uid);
     });
   }
 
   Future<void> _logout() async {
-    context.read<DashboardProvider>().reset(); // kill the stream first
+    context.read<DashboardProvider>().reset();  
     await context.read<AuthProvider>().logout();
     if (mounted) {
       Navigator.of(
@@ -95,7 +95,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             childCount: dashboard.classes.length,
                           ),
                         ),
-                  // Bottom padding so last card isn't flush to the edge
+                   
                   const SliverToBoxAdapter(child: SizedBox(height: 32)),
                 ],
               ),
@@ -103,8 +103,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
             Navigator.pushNamed(context, AppRoutes.joinClass).then((_) {
-              // Check the user still exists before refreshing
-              // (they may have logged out from the join screen)
+               
+               
               final uid = context.read<AuthProvider>().currentUser?.uid;
               if (uid != null && mounted) {
                 context.read<DashboardProvider>().init(uid);
@@ -139,7 +139,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          // Notification hint banner
+           
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
@@ -207,7 +207,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         child: Row(
           children: [
-            // Coloured icon badge
+             
             Container(
               height: 48,
               width: 48,

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ClassModel {
-  final String classCode;     // document ID
+  final String classCode;      
   final String name;
   final String description;
   final String adminId;

@@ -31,15 +31,15 @@ class AuthProvider extends ChangeNotifier {
         password: password.trim(),
       );
 
-      // Update the Firebase Auth display name
+       
       await credential.user!.updateDisplayName(displayName.trim());
 
-      // Create the Firestore user profile document
+       
       final user = UserModel(
         uid: credential.user!.uid,
         email: email.trim(),
         displayName: displayName.trim(),
-        role: 'student', // everyone starts as a student
+        role: 'student',  
         joinedClassIds: [],
         createdAt: DateTime.now(),
       );
@@ -79,7 +79,7 @@ class AuthProvider extends ChangeNotifier {
 
   void _setLoading(bool value) {
     _isLoading = value;
-    notifyListeners(); // tells widgets to rebuild
+    notifyListeners();  
   }
 
   void _clearError() {

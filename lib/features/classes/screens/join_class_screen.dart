@@ -51,7 +51,7 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
         _isLoading = false;
       });
     } else {
-      // Success — go to dashboard
+       
       Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
     }
   }
@@ -74,7 +74,7 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
                   onTap: () async {
                     context
                         .read<DashboardProvider>()
-                        .reset(); // kill the stream first
+                        .reset();  
                     await context.read<AuthProvider>().logout();
                     if (mounted) {
                       Navigator.of(context).pushNamedAndRemoveUntil(
@@ -137,7 +137,7 @@ class _JoinClassScreenState extends State<JoinClassScreen> {
 
                 TextFormField(
                   controller: _codeController,
-                  // Force uppercase as they type
+                   
                   textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(
                     fontSize: 22,
