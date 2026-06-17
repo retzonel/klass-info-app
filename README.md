@@ -5,7 +5,6 @@ A mobile application that helps university students organize course materials, a
 ## Problem
 
 Students often rely on WhatsApp groups for academic communication. Important announcements, lecture notes, and class updates become buried among hundreds of messages.
-
 KlassInfo solves this problem by providing a centralized platform for course information.
 
 ## Features
@@ -96,5 +95,4 @@ Building KlassInfo taught me:
 * Attendance System
 
 ## Author
-
-Retzonel
+Nwocha Godswill (Retzonel)
